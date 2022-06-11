@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Sesion 10</title>
+
+
+
+    <script type="text/javascript">
+
+        var veces=0;
+        function ComparaIntentos(){
+            let valor1 = document.getElementById("usuario").value;
+            let valor2 = document.getElementById("clave01").value;
+            let valor3 = document.getElementById("clave02").value;
+
+            let text = document.getElementById("textpantalla");
+
+            if (valor2==valor3) 
+            {
+                text.innerHTML= ("Bienvenido " +  valor1);
+                text.style.color="green";
+            }
+            else if(veces<3)
+            {
+                veces++;
+                text.innerHTML=("Las contraseñas no coinciden");
+                text.style.color="red";
+                if (veces==3)
+                {
+                text.innerHTML=("Ha exedido el numero de intentos" + "<br>" + "Bloqueando el sistema....");
+                text.style.color="red";
+                }
+            }
+            return false;
+        }
+    </script>
+
+</head>
+<body>
+    <div class="title">
+        <p>Practica JavaS Sesion 10</p>
+    </div>
+    <main>
+        <form class="formulario" onsubmit="return ComparaIntentos()">
+            <div class="container">
+                <label>usuario</label>
+                <div>
+                    <input type="text" id="usuario" placeholder="usuario" required>
+                </div>
+            </div>
+            <div class="container">
+                <label>Contraseña</label>
+                <div>
+                    <input type="text" id="clave01" required>
+                </div>
+            </div>
+            <div class="container">
+                <label>Repetir Contraseña</label>
+                <div>
+                    <input type="text" id="clave02" required>
+                </div>
+            </div>
+            <div class="container">
+                <button type="submit">Siguiente</button>
+            </div>
+
+            <div id="textpantalla"></div>
+        </form>
+    </main>
+    <section>
+        <div class="final"><h1>Roberto <br> Herrera Arriaga <br> Grupo "C"</h1></div>
+    </section>
+</body>
+</html>
